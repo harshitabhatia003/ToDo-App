@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
-import { TodoFormData, Priority, Category } from '../types';
 
-interface AddTodoFormProps {
-  onSubmit: (todo: TodoFormData) => void;
-}
-
-const AddTodoForm: React.FC<AddTodoFormProps> = ({ onSubmit }) => {
-  const [formData, setFormData] = useState<TodoFormData>({
+const AddTodoForm = ({ onSubmit }) => {
+  const [formData, setFormData] = useState({
     title: '',
     description: '',
-    priority: 'medium' as Priority,
-    category: 'personal' as Category,
+    priority: 'medium',
+    category: 'personal',
     dueDate: new Date().toISOString().split('T')[0]
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(formData);
     setFormData({
@@ -26,7 +21,7 @@ const AddTodoForm: React.FC<AddTodoFormProps> = ({ onSubmit }) => {
     });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,

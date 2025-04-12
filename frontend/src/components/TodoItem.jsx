@@ -1,14 +1,7 @@
 import React from 'react';
-import { Todo } from '../types';
 
-interface TodoItemProps {
-  todo: Todo;
-  onToggleComplete: (id: string) => void;
-  onDelete: (id: string) => void;
-}
-
-const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggleComplete, onDelete }) => {
-  const getCategoryStyle = (category: string): string => {
+const TodoItem = ({ todo, onToggleComplete, onDelete }) => {
+  const getCategoryStyle = (category) => {
     switch (category.toLowerCase()) {
       case 'work':
         return 'bg-primary-100 text-primary-400';
@@ -23,7 +16,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggleComplete, onDelete })
     }
   };
 
-  const getPriorityStyle = (priority: string): string => {
+  const getPriorityStyle = (priority) => {
     switch (priority.toLowerCase()) {
       case 'high':
         return 'bg-danger-light text-danger-dark';
