@@ -13,10 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/todo-list', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/todo-list')
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('MongoDB connection error:', err));
 
@@ -31,6 +28,12 @@ const taskSchema = new mongoose.Schema({
 });
 
 const Task = mongoose.model('Task', taskSchema);
+
+// Error handling middleware
+const errorHandler = (err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ message: 'Something went wrong!' });
+};
 
 // Routes
 app.get('/api/tasks', async (req, res) => {
@@ -79,6 +82,9 @@ app.patch('/api/tasks/:id', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
+// Use error handling middleware
+app.use(errorHandler);
 
 // Start server
 app.listen(PORT, () => {
