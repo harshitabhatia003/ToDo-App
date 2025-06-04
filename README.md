@@ -1,8 +1,5 @@
-Thanks for clarifying that the project uses the **MERN stack** (MongoDB, Express.js, React.js, and Node.js). Here's an updated `README.md` draft that reflects that stack:
 
----
-
-# ToDo App (MERN Stack)
+# ToDo App 
 
 A full-stack ToDo application built using the **MERN stack** (MongoDB, Express.js, React.js, and Node.js). This app allows users to manage tasks efficiently with persistent storage and a responsive user interface.
 
