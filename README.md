@@ -51,7 +51,7 @@ A full-stack ToDo application built using the **MERN stack** (MongoDB, Express.j
 6. Run the frontend in a separate terminal:
 
    ```bash
-   npm start
+   npm run dev
    ```
 
 ## API Endpoints

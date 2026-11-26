@@ -3,3 +3,60 @@
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+
+# Dependencies
+node_modules/
+vendor/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Build output
+dist/
+build/
+out/
+
+# Logs
+*.log
+logs/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Java compiled files
+*.class
+target/
+
+# Secrets and credentials
+*.pem
+*.key
+
+# Test and coverage output
+coverage/
+.nyc_output/
+
+# Archives
+*.zip
+*.tar
+*.gz
